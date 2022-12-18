@@ -13,7 +13,7 @@ public class Main {
 		}
 	}
 	
-	private static int cleaningOverlap(String elf1, String elf2) {
+	private static int cleaningContains(String elf1, String elf2) {
 		
 		int startElf1 = Integer.parseInt(elf1.split("-")[0]);
 		int endElf1 = Integer.parseInt(elf1.split("-")[1]);
@@ -25,6 +25,24 @@ public class Main {
 		if(startElf2 <= startElf1 && endElf2 >= endElf1) return 1;
 		
 		return 0;
+	}
+	
+	private static int cleaningOverlap(String elf1, String elf2) {
+
+		int startElf1 = Integer.parseInt(elf1.split("-")[0]);
+		int endElf1 = Integer.parseInt(elf1.split("-")[1]);
+		
+		int startElf2 = Integer.parseInt(elf2.split("-")[0]);
+		int endElf2 = Integer.parseInt(elf2.split("-")[1]);
+
+		if(startElf1 <= startElf2 && endElf1 >= startElf2) return 1;
+		if(startElf1 <= endElf2 && endElf1 >= endElf2) return 1;
+
+		if(startElf2 <= startElf1 && endElf2 >= startElf1) return 1;
+		if(startElf2 <= endElf1 && endElf2 >= endElf1) return 1;
+		
+		return 0;
+		
 	}
 	
 }
